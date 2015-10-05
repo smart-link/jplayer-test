@@ -61,10 +61,13 @@ $(document).ready(function(){
       if (AD_PLAYED) return;
       $('#text').text('Song Playing');
       console.log('Song Playing');
-      setTimeout(function() {
+    },
+    timeupdate: function(event) {
+      if (AD_PLAYED) return;
+      if (event.jPlayer.status.currentTime > 3) {
         $("#jquery_jplayer_1").jPlayer('pause');
         $("#jquery_jplayer_ad").jPlayer("play");
-      }, 3000);
+      }
     }
   });
 });
